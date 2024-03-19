@@ -1,5 +1,5 @@
 -- mkdir -p sqlite
--- sqlite3 sqlite/ip2location.ipv4
+-- sqlite3 sqlite/ip2location.db
 
 CREATE TABLE ip2location (
   ip_from INT(10),
