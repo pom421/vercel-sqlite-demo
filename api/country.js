@@ -4,7 +4,7 @@ const {now} = require('perf_hooks').performance;
 const {Database} = require('sqlite3');
 const SQLiteTag = require('sqlite-tag');
 
-const ip2location = join(__dirname, '..', 'sqlite', 'ip2location.ipv4');
+const ip2location = join(__dirname, '..', 'sqlite', 'ip2location.db');
 
 const ipv4 = {
   _: [16777216, 65536, 256, 1],
