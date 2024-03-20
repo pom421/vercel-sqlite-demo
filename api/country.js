@@ -1,7 +1,7 @@
 const {join} = require('path');
 const {now} = require('perf_hooks').performance;
 
-const {Database} = require('sqlite3');
+const {Database} = require('better-sqlite3');
 const SQLiteTag = require('sqlite-tag');
 
 const ip2location = join(__dirname, '..', 'sqlite', 'ip2location.db');
