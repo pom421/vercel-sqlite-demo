@@ -1,10 +1,11 @@
 const {join} = require('path');
 const {now} = require('perf_hooks').performance;
+const ip2location = join(__dirname, '..', 'sqlite', 'ip2location.db');
 
-const database = require('better-sqlite3');
+
+const db = require('better-sqlite3')(ip2location);
 const SQLiteTag = require('sqlite-tag');
 
-const ip2location = join(__dirname, '..', 'sqlite', 'ip2location.db');
 
 const ipv4 = {
   _: [16777216, 65536, 256, 1],
@@ -17,7 +18,7 @@ module.exports = async (req, res) => {
   const address = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
   if (ipv4.asRegExp.test(address)) {
     const time = now();
-    const db = database(ip2location);
+    // const db = new Database(ip2location);
     const {get} = SQLiteTag(db);
     const location = await get`
       SELECT
